@@ -1,0 +1,36 @@
+{
+  "name": "fetchicon",
+  "version": "0.1.0",
+  "description": "A simple library for fetching the best icon image to represent a website",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "icon",
+    "favicon",
+    "apple-touch-icon",
+    "fetch",
+    "url",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelmcauley/fetchicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelmcauley/fetchicon/issues"
+  },
+  "homepage": "https://github.com/michaelmcauley/fetchicon#readme",
+  "dependencies": {
+    "linkedom": "^0.18.12"
+  }
+}
