@@ -1,3 +1,5 @@
+import { IconRequirements, IconSize } from "./types";
+
 const checkFileExists = async function (url: string): Promise<boolean> {
   try {
     // try HEAD request first
@@ -25,4 +27,29 @@ const checkFileExists = async function (url: string): Promise<boolean> {
   }
 };
 
-export { checkFileExists };
+const iconSizeMeetsRequirements = function (
+  size: IconSize,
+  requirements: IconRequirements,
+): boolean {
+  const dimensions = parseIconSize(size);
+  const minDimensions =
+    requirements.minSize && parseIconSize(requirements.minSize);
+  const maxDimensions =
+    requirements.maxSize && parseIconSize(requirements.maxSize);
+  return (
+    dimensions.w >= (minDimensions?.w || 0) &&
+    dimensions.h >= (minDimensions?.h || 0) &&
+    dimensions.w <= (maxDimensions?.w || Infinity) &&
+    dimensions.h <= (maxDimensions?.h || Infinity)
+  );
+};
+
+const parseIconSize = function (size: IconSize): { w: number; h: number } {
+  const [w, h] = size
+    .toLowerCase()
+    .split("x")
+    .map((dimension) => parseInt(dimension));
+  return { w, h };
+};
+
+export { checkFileExists, iconSizeMeetsRequirements, parseIconSize };
